@@ -13,7 +13,11 @@ public class DwarfDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void save(Dwarf dwarf){
+    public void save(Dwarf dwarf) {
         entityManager.persist(dwarf);
+    }
+
+    public Dwarf findById(Long id) {
+        return entityManager.find(Dwarf.class, id);
     }
 }

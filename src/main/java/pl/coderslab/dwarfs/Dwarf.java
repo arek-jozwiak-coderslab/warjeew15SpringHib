@@ -6,6 +6,7 @@ import lombok.ToString;
 import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -13,9 +14,12 @@ import javax.persistence.*;
 @Table(name = "dwarfs")
 public class Dwarf {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long id;
+
+    private LocalDateTime createdOn;
+
     private String name;
 
     @Column(name = "latitude")
@@ -27,5 +31,10 @@ public class Dwarf {
 
     @Transient
     private long distanceFromPapa;
+
+    @PrePersist
+    public void prePersist() {
+        createdOn = LocalDateTime.now();
+    }
 
 }
