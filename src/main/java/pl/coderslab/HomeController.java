@@ -9,6 +9,9 @@ public class HomeController {
     @RequestMapping("/")
     @ResponseBody
     public String start() {
+        System.out.println("hello 123");
         return "start";
     }
+
+
 }
