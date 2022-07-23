@@ -1,11 +1,10 @@
-package pl.coderslab.dwarfs;
+package pl.coderslab.dwarf;
 
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.awt.print.Book;
 
 @Repository
 @Transactional

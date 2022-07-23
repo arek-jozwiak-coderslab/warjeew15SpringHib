@@ -1,4 +1,4 @@
-package pl.coderslab.dwarfs;
+package pl.coderslab.dwarf;
 
 import org.springframework.stereotype.Service;
 

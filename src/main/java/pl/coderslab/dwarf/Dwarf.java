@@ -1,9 +1,7 @@
-package pl.coderslab.dwarfs;
+package pl.coderslab.dwarf;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
