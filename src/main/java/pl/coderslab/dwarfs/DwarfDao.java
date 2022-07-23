@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.awt.print.Book;
 
 @Repository
 @Transactional
@@ -20,4 +21,12 @@ public class DwarfDao {
     public Dwarf findById(Long id) {
         return entityManager.find(Dwarf.class, id);
     }
+
+    public void update(Dwarf dwarf) {
+        entityManager.merge(dwarf);
+    }
+
+    public void delete(Dwarf dwarf) {
+        entityManager.remove(entityManager.contains(dwarf) ?
+                dwarf : entityManager.merge(dwarf)); }
 }
