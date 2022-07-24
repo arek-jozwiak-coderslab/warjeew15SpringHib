@@ -2,6 +2,8 @@ package pl.coderslab.dwarf;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DwarfService {
     private final DwarfDao dwarfDao;
@@ -15,8 +17,12 @@ public class DwarfService {
         dwarfDao.save(dwarf);
         // some logic
     }
-    public Dwarf findById(Long id){
+
+    public Dwarf findById(Long id) {
         return dwarfDao.findById(id);
     }
 
+    public List<Dwarf> findAll() {
+        return dwarfDao.findAll();
+    }
 }

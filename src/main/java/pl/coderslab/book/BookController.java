@@ -1,11 +1,7 @@
 package pl.coderslab.book;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -13,11 +9,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BookController {
     private final BookDao bookDao;
     private final PublisherDao publisherDao;
+    private final AuthorDao authorDao;
 
-    public BookController(BookDao bookDao, PublisherDao publisherDao) {
+
+    public BookController(BookDao bookDao, PublisherDao publisherDao, AuthorDao authorDao) {
         this.bookDao = bookDao;
         this.publisherDao = publisherDao;
+        this.authorDao = authorDao;
     }
+
+    @ResponseBody
+    @GetMapping("/test-rating")
+    public String testRating(@RequestParam int rating) {
+        bookDao.findAllByRating(rating)
+                .forEach(b -> System.out.println(b.getTitle()));
+        return "test-rating";
+    }
+
+    @ResponseBody
+    @GetMapping("/test-author")
+    public String testAuthor(@RequestParam long authorId) {
+        bookDao.findBooksWithAuthor(authorDao.findById(authorId))
+                .forEach(b -> System.out.println(b.getTitle()));
+        return "test-rating";
+    }
+
 
     @ResponseBody
     @GetMapping("/test")

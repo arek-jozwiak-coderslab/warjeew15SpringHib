@@ -21,6 +21,8 @@ public class Book {
     private String description;
     @ManyToOne
     private Publisher publisher;
+    @ManyToMany
+    private List<Author> authors;
 
 
 

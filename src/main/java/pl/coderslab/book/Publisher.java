@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Publisher {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
