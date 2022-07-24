@@ -13,19 +13,16 @@ import java.util.List;
 @RequestMapping("/student")
 public class StudentController {
 
-//    @ModelAttribute("languages")
-//    public List<String> checkOptions() {
-//        String[] a = new String[] {"java", "php", "ruby", "python"};
-//        return Arrays.asList(a);
-//    }
+    @ModelAttribute("hobbies")
+    public List<String> checkOptions() {
+        String[] a = new String[] {"java", "php", "ruby", "python"};
+        return Arrays.asList(a);
+    }
 
     @GetMapping("/add")
     public String add(Model model) {
         Student student = new Student();
-        student.setFirstName("arek");
-        student.setLastName("jozwiak");
         model.addAttribute("student", student);
-        model.addAttribute("languages",Arrays.asList(new String[] {"java", "php", "ruby", "python"}) );
         return "student/add";
     }
 

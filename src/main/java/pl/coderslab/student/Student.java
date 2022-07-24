@@ -2,6 +2,8 @@ package pl.coderslab.student;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder
@@ -10,5 +12,6 @@ import lombok.*;
 public class Student {
     private String firstName;
     private String lastName;
+    private List<String> hobbies;
 
 }

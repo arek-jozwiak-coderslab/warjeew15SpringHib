@@ -6,6 +6,7 @@ import pl.coderslab.book.Publisher;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -13,6 +14,11 @@ public class PublisherDao {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    public List<Book> findAll() {
+        return entityManager.createQuery("select p from Publisher p")
+                .getResultList();
+    }
 
     public void save(Publisher publisher) {
         entityManager.persist(publisher);

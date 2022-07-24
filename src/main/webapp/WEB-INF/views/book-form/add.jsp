@@ -6,10 +6,12 @@
     <title>Title</title>
 </head>
 <body>
-<form:form method="post" modelAttribute="student">
-    <form:input path="firstName"/>
-    <form:input path="lastName"/>
-    <form:checkboxes path="hobbies" items="${hobbies}"/>
+<form:form method="post" modelAttribute="book">
+    <form:hidden path="id"/>
+    <form:input path="title"/>
+    <form:input path="rating"/>
+    <form:select path="publisher" items="${publishers}" itemValue="id" itemLabel="name"/>
+
     <input type="submit" value="Save">
 </form:form>
 </body>
