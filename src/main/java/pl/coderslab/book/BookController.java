@@ -28,7 +28,7 @@ public class BookController {
 
     @ResponseBody
     @GetMapping("/test-author")
-    public String testAuthor(@RequestParam long authorId) {
+    public String testAuthor(@RequestParam Long authorId) {
         bookDao.findBooksWithAuthor(authorDao.findById(authorId))
                 .forEach(b -> System.out.println(b.getTitle()));
         return "test-rating";
