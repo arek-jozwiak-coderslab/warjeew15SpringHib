@@ -21,8 +21,7 @@ public class StudentController {
 
     @GetMapping("/add")
     public String add(Model model) {
-        Student student = new Student();
-        model.addAttribute("student", student);
+        model.addAttribute("student", new Student());
         return "student/add";
     }
 
