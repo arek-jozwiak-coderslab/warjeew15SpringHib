@@ -1,20 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: arek
-  Date: 24.07.2022
-  Time: 12:27
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form"
+           uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form method="post">
-    <input type="text" name="firstName">
-    <input type="text" name="lastName">
-    <input type="submit">
-</form>
+<form:form method="post" modelAttribute="student">
+    <form:input path="firstName"/>
+    <form:input path="lastName"/>
+    <input type="submit" value="Save">
+</form:form>
 </body>
 </html>
